@@ -1,0 +1,25 @@
+print("Calculadora Simples")
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+
+print("1 - Soma:")
+print("2 - Subtração:")
+print("3 - Multiplicação")
+print("4 - Divisão")
+operador = int(input("Digite qual conta deseja realizar:"))
+
+match operador:
+    case 1:
+        soma = num1 + num2
+        print("Soma dos números: ", soma)
+    case 2:
+        sub = num1 - num2
+        print("Subtração dos números: ", sub)
+    case 3:
+        mult = num1 * num2
+        print("Multiplicação  dos números: ", mult)
+    case 4: 
+        div = num1 / num2
+        print("Divisão dos números: ", div)
+    case _:
+        print("ERRO!!!")
