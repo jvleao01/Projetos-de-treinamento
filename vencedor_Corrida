@@ -1,0 +1,65 @@
+package atividadeGiovanna;
+
+import java.util.*;
+
+public class corrida {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String piloto, primeiro = null, segundo = null, terceiro = null;
+		int velocidade, PrimeiroLugar = 0, SegundoLugar = 0, TerceiroLugar = 0,  soma = 0;
+		float media;
+		
+		System.out.print("Digite o número de voltas da corrida : ");
+		int voltas = sc.nextInt();
+		
+		for(int i = 1; i <= 10; i++) {
+			System.out.print("Digite o nome do piloto "+i+" : ");
+			piloto = sc.next();
+			System.out.print("Digite a velocidade do piloto : ");
+			velocidade = sc.nextInt();
+			soma = soma + velocidade;
+			
+			if(velocidade > PrimeiroLugar) {
+				TerceiroLugar = SegundoLugar;
+				terceiro = segundo;
+				
+				
+				SegundoLugar = PrimeiroLugar;
+				segundo = primeiro;
+				
+				
+				PrimeiroLugar = velocidade;
+				primeiro = piloto;
+				
+			}
+			
+			if(velocidade > SegundoLugar && velocidade < PrimeiroLugar) {
+				TerceiroLugar = SegundoLugar;
+				terceiro = segundo;
+				
+				SegundoLugar = velocidade;
+				segundo = piloto;
+			}
+			
+			if(velocidade > TerceiroLugar && velocidade < SegundoLugar) {
+				TerceiroLugar = velocidade;
+				terceiro = piloto;
+			}
+	
+		}
+		
+		media = soma/10;
+		
+		System.out.println("Número de voltas : " + voltas);
+		System.out.println("Velocidade média entre os pilotos : " + media);
+		System.out.println("1º colocado : " + primeiro + ", velocidade : " + PrimeiroLugar + "KM/H");
+		System.out.println("2º colocado : " + segundo + ", velocidade : " + SegundoLugar + "KM/H");
+		System.out.println("3º colocado : " + terceiro + ", velocidade : " + TerceiroLugar + "KM/H");
+		
+		sc.close();
+
+	}
+
+}
