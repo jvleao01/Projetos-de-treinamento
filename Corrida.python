@@ -1,0 +1,44 @@
+soma = 0
+primeiro = None
+segundo =None
+terceiro = None
+
+PrimeiroLugar = 0
+SegundoLugar = 0
+TerceiroLugar = 0
+
+print("Corrida!!!")
+voltas = int(input("Digite o número de voltas: "))
+for x in range(10):
+    piloto = input("Digite o nome do piloto " + str(x+1) + " : ")
+    velocidade = int(input("Digite a velocidade do piloto :"))
+    soma += velocidade
+
+    if velocidade > PrimeiroLugar:
+        TerceiroLugar = SegundoLugar
+        terceiro = segundo
+
+        SegundoLugar = PrimeiroLugar
+        segundo = primeiro
+
+        PrimeiroLugar = velocidade
+        primeiro = piloto
+
+    elif velocidade > SegundoLugar and velocidade < PrimeiroLugar:
+        TerceiroLugar = SegundoLugar
+        terceiro = segundo
+
+        SegundoLugar = velocidade
+        segundo = piloto
+
+    elif velocidade > TerceiroLugar and velocidade < SegundoLugar:
+        TerceiroLugar = velocidade
+        terceiro = piloto
+    
+media = soma/10
+
+print("Número de voltas: ", voltas)
+print("Velocidade média entre os pilotos: ", media)
+print("1º colocado: ",primeiro,", velocidade: ",PrimeiroLugar," KM/H.")
+print("2º colocado: ",segundo,", velocidade: ",SegundoLugar," KM/H.")
+print("3º colocado: ",terceiro,", velocidade: ",TerceiroLugar," KM/H.")
